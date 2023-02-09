@@ -5,7 +5,10 @@
 ## Description 
 A simple gas pump kiosk program with PIN based authenication.
 Made to be super simple for fleet use. Will keep track of 
-gas dispenced per PIN, tank level, and gas added. Can log
+gas dispenced per PIN, tank level, and gas added. Customers can
+also add money to their accounts beforehand so they can access pump
+in a faster and more efficient manner rather than paying every time 
+they want to access pump. Can log
 automated alerts to admin when tank gets low and shut off pump.
 Program is intended to be firmware that is easily deployed and 
 extended to cover multiple tanks and pumps. Will access external 
