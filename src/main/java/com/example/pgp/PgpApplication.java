@@ -13,7 +13,7 @@ public class PgpApplication {
         clearScreen();
         System.out.println("Pump Control Software \nver " + verNum);
 
-        System.out.println("\n\nPlease Enter Four Digit PIN:");
+        System.out.println("\n\nPlease Enter Four Digit PIN:"); //get pin and match with db to figure out role
     }
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
