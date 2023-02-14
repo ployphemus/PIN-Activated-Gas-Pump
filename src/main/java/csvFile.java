@@ -3,6 +3,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Class allows for the reading  and writing of a three column csv file.
+ * Is meant to be started when program starts as to allow access to data
+ * for verifying PINs and editing fuel amounts.
+ */
 public class csvFile {
     private static final int NUM_COLUMNS = 3;
     private String filePath;
@@ -12,6 +17,9 @@ public class csvFile {
         this.filePath = filePath;
     }
 
+    /**
+     * Method reads raw data from csv file and puts it into data array
+     */
     public void readData() {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             int lineCount = 0;
@@ -39,6 +47,10 @@ public class csvFile {
         }
     }
 
+    /**
+     * takes a formatted 2d array and writes it to a csv file
+     * @param data 2d array !!Must have three entries per row!!
+     */
     public void writeData(String[][] data) {
         try (FileWriter writer = new FileWriter(filePath)) {
             for (String[] lineData : data) {
