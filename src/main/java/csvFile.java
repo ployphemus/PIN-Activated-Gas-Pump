@@ -9,9 +9,9 @@ import java.io.IOException;
  * for verifying PINs and editing fuel amounts.
  */
 public class csvFile {
-    private static final int NUM_COLUMNS = 3;
-    private String filePath;
-    private String[][] data;
+    private static final int NUM_COLUMNS = 3; //defines number of columns in array
+    private String filePath;                  //filepath for csv file
+    private String[][] data;                  //2d array for data pulled from csv
 
     public csvFile(String filePath) {
         this.filePath = filePath;
