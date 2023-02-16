@@ -3,6 +3,8 @@ package com.example.pgp;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static com.example.pgp.PgpApplication.data;
+
 public class admin {
     protected String pin;
     protected String name;
@@ -31,6 +33,7 @@ public class admin {
             else if(Objects.equals(menuC, "end")){x = true;}
             else {System.out.println("That is not a valid entry");}
         }
+
     }
     public void addUser(){
         Boolean x = false;

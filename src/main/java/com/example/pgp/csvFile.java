@@ -51,7 +51,7 @@ public class csvFile {
 
     /**
      * takes a formatted 2d array and writes it to a csv file
-     * @param data 2d array !!Must have three entries per row!!
+     * @param data 2d array !!Must have four entries per row!!
      */
     public void writeData(String[][] data) {
         try (FileWriter writer = new FileWriter(filePath)) {
