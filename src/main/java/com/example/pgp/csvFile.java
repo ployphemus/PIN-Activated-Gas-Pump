@@ -1,15 +1,17 @@
+package com.example.pgp;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Class allows for the reading  and writing of a three column csv file.
+ * Class allows for the reading  and writing of a four column csv file.
  * Is meant to be started when program starts as to allow access to data
  * for verifying PINs and editing fuel amounts.
  */
 public class csvFile {
-    private static final int NUM_COLUMNS = 3; //defines number of columns in array
+    private static final int NUM_COLUMNS = 4; //defines number of columns in array
     private String filePath;                  //filepath for csv file
     private String[][] data;                  //2d array for data pulled from csv
 
