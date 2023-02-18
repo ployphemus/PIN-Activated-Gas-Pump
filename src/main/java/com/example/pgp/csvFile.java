@@ -1,3 +1,4 @@
+//William Vaughan
 package com.example.pgp;
 
 import java.io.BufferedReader;

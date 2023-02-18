@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 //!!!first two rows in csv array are tank and pump, do not modify!!!
 
@@ -15,14 +16,33 @@ public class PgpApplication {
     public static void main(String[] args) {
         SpringApplication.run(PgpApplication.class, args);
         int keepOpen = 1;
-        csvFile file = new csvFile("pinData.csv"); //initialize csvFile and get csv file contents
-        data = file.getData();  //store csv file to 2d array for public access
+        String pin;
+        int index;
+        csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv"); //initialize csvFile and get csv file contents
+        Scanner input = new Scanner(System.in);
         while(keepOpen == 1) {
+            file.readData();        //store csv to class array/reload array from modified csv file
+            data = file.getData();  //store csv file to 2d array for public access
             clearScreen();
             System.out.println("Pump Control Software \nver " + verNum);
 
             System.out.println("\n\nPlease Enter Four Digit PIN:");   //get pin and match with db to figure out role
-
+            pin = input.next();
+            index = checkPin(pin);
+            if(index != 0){
+                if(Objects.equals(data[index][2], "1")){
+                    //TODO call admin
+                }
+                else if(Objects.equals(data[index][2], "2")){;
+                    //TODO call user
+                }
+                else if(Objects.equals(data[index][2], "3")){
+                    //TODO call fuelTruck
+                }
+                else{
+                    System.out.println("!CSV file may be corrupted,\nplease have an admin check it!");
+                }
+            }
         }
     }
 
