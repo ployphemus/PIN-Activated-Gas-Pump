@@ -21,6 +21,7 @@ public class PgpApplication {
         csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv"); //initialize csvFile and get csv file contents
         Scanner input = new Scanner(System.in);
         while(keepOpen == 1) {
+
             file.readData();        //store csv to class array/reload array from modified csv file
             data = file.getData();  //store csv file to 2d array for public access
             clearScreen();
@@ -29,9 +30,10 @@ public class PgpApplication {
             System.out.println("\n\nPlease Enter Four Digit PIN:");   //get pin and match with db to figure out role
             pin = input.next();
             index = checkPin(pin);
+
             if(index != 0){
                 if(Objects.equals(data[index][2], "1")){
-                    //TODO call admin
+                    new admin(index);
                 }
                 else if(Objects.equals(data[index][2], "2")){;
                     //TODO call user
