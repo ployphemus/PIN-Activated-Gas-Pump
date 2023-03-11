@@ -17,6 +17,10 @@ public class admin {
         //TODO create admin stuff: add delete user, turn pump on/off
     }
 
+    /**
+     * Creates user menu for selecting options, end returns to pin menu
+     * add or subtract ifs to increase or decrease menu size
+     */
     public void menu(){
         String menuC;
         boolean x = false;

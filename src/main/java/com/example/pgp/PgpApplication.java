@@ -11,7 +11,7 @@ import java.util.Scanner;
 @SpringBootApplication
 public class PgpApplication {
     static String[][] data;
-    static String verNum = "0.02";
+    static String verNum = "0.03";
 
     public static void main(String[] args) {
         SpringApplication.run(PgpApplication.class, args);
@@ -35,7 +35,7 @@ public class PgpApplication {
                 if(Objects.equals(data[index][2], "1")){
                     new admin(index);
                 }
-                else if(Objects.equals(data[index][2], "2")){;
+                else if(Objects.equals(data[index][2], "2")){
                     //TODO call user
                 }
                 else if(Objects.equals(data[index][2], "3")){
@@ -60,6 +60,8 @@ public class PgpApplication {
                 return i;
             }
         }
+        System.out.println("PIN !!NOT!! authenticated!");
+        clearScreen();
         return 0;
     }
 
