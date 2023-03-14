@@ -13,7 +13,7 @@ public class admin {
     public admin(int index) {
         this.index = index;
         menu();
-        //TODO create admin stuff: add delete user, turn pump on/off
+        //TODO create admin stuff: delete user, turn pump on/off
     }
 
     /**

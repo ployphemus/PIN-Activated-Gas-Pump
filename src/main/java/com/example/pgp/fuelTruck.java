@@ -46,6 +46,6 @@ public class fuelTruck {
 
     public void checkAddedFuel(){
         //hard code for proto-display
-        System.out.println("Driver has delivered 123841 of fuel");
+        System.out.println("Driver has delivered 123841 G of fuel");
     }
 }
