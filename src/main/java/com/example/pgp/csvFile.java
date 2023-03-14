@@ -69,6 +69,22 @@ public class csvFile {
             e.printStackTrace();
         }
     }
+    public void writeDataInternal() {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            for (String[] lineData : data) {
+                for (int i = 0; i < NUM_COLUMNS; i++) {
+                    writer.write(lineData[i]);
+                    if (i < NUM_COLUMNS - 1) {
+                        writer.write(",");
+                    }
+                }
+                writer.write("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public String[][] getData() {
         return data;

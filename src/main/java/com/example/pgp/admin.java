@@ -2,7 +2,6 @@ package com.example.pgp;
 
 import java.util.Objects;
 import java.util.Scanner;
-
 import static com.example.pgp.PgpApplication.data;
 
 public class admin {
@@ -83,6 +82,11 @@ public class admin {
             }
             else{test = true;}
         }
+        String[] newRow = {String.valueOf(pin),name,String.valueOf(userType),"00.00"};
+        csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv");
+        file.readData();
+        file.addRow(newRow);
+        file.writeDataInternal();
     }
 
     public void remUser(){

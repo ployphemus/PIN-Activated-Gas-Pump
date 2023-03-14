@@ -30,7 +30,7 @@ public class fuelTruck {
 
             menuC = input.next();
 
-            if(Objects.equals(menuC, "1")){}
+            if(Objects.equals(menuC, "1")){addFuel();}
             else if(Objects.equals(menuC, "2")){}
             else if(Objects.equals(menuC, "3")){}
             else if(Objects.equals(menuC, "end")){x = true;}
@@ -39,10 +39,13 @@ public class fuelTruck {
 
     }
     public void addFuel(){
-
+        csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv");
+        data[index][3] = "55.33";
+        file.writeData(data);
     }
 
     public void checkAddedFuel(){
-
+        //hard code for proto-display
+        System.out.println("Driver has delivered 123841 of fuel");
     }
 }

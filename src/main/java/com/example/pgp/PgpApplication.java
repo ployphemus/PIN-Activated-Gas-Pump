@@ -36,10 +36,10 @@ public class PgpApplication {
                     new admin(index);
                 }
                 else if(Objects.equals(data[index][2], "2")){
-                    //TODO call user
+                    new user(index);
                 }
                 else if(Objects.equals(data[index][2], "3")){
-                    //TODO call fuelTruck
+                    new fuelTruck(index);
                 }
                 else{
                     System.out.println("!CSV file may be corrupted,\nplease have an admin check it!");
