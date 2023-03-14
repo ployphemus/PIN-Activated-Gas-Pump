@@ -8,7 +8,6 @@ import static com.example.pgp.PgpApplication.data;
 public class user {
     protected int index;
 
-    protected int test;
     public user(int index) {
         this.index = index;
         menu();
