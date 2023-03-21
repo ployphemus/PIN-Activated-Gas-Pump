@@ -30,8 +30,8 @@ public class fuelTruck {
 
             menuC = input.next();
 
-            if(Objects.equals(menuC, "1")){addFuel();}
-            else if(Objects.equals(menuC, "2")){}
+            if(Objects.equals(menuC, "1")){addFuel();x = true;}
+            else if(Objects.equals(menuC, "2")){checkAddedFuel();x = true;}
             else if(Objects.equals(menuC, "3")){}
             else if(Objects.equals(menuC, "end")){x = true;}
             else {System.out.println("That is not a valid entry");}

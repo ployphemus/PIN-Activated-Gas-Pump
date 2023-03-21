@@ -34,14 +34,18 @@ public class admin {
             menuC = input.next();
 
             if(Objects.equals(menuC, "1")){addUser();}
-            else if(Objects.equals(menuC, "2")){}
-            else if(Objects.equals(menuC, "3")){}
-            else if(Objects.equals(menuC, "4")){}
+            else if(Objects.equals(menuC, "2")){remUser();}
+            else if(Objects.equals(menuC, "3")){tank();}
+            else if(Objects.equals(menuC, "4")){pump();}
             else if(Objects.equals(menuC, "end")){x = true;}
             else {System.out.println("That is not a valid entry");}
         }
 
     }
+
+    /**
+     * Takes entered PIN, Name, and UserType and saves to CSV file
+     */
     public void addUser(){
         boolean test = false;
         Scanner input = new Scanner(System.in);
@@ -89,10 +93,13 @@ public class admin {
         file.writeDataInternal();
     }
 
+    public void tank(){
+        System.out.println("There are 48000g in tank.");
+    }
     public void remUser(){
-
+        System.out.println("Please enter a name:");
     }
     public void pump(){
-
+        System.out.println("Pump is currently !!ON!!\nSet to OFF?\ny/n");
     }
 }

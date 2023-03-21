@@ -11,7 +11,7 @@ import java.util.Scanner;
 @SpringBootApplication
 public class PgpApplication {
     static String[][] data;
-    static String verNum = "0.03";
+    static String verNum = "0.09";
 
     public static void main(String[] args) {
         SpringApplication.run(PgpApplication.class, args);

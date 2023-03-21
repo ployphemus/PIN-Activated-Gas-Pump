@@ -31,9 +31,9 @@ public class user {
 
             menuC = input.next();
 
-            if(Objects.equals(menuC, "1")){}
-            else if(Objects.equals(menuC, "2")){}
-            else if(Objects.equals(menuC, "3")){}
+            if(Objects.equals(menuC, "1")){getFuel();x = true;}
+            else if(Objects.equals(menuC, "2")){checkFuel();x = true;}
+            else if(Objects.equals(menuC, "3")){tank();}
             else if(Objects.equals(menuC, "end")){x = true;}
             else {System.out.println("That is not a valid entry");}
         }
@@ -45,5 +45,7 @@ public class user {
     public void checkFuel(){
 
     }
-
+    public void tank(){
+        System.out.println("There are 48000g in tank.");
+    }
 }

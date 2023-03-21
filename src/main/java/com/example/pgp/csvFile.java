@@ -69,6 +69,10 @@ public class csvFile {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Same as writeData but writes from the internal array in the class
+     */
     public void writeDataInternal() {
         try (FileWriter writer = new FileWriter(filePath)) {
             for (String[] lineData : data) {
@@ -90,11 +94,14 @@ public class csvFile {
         return data;
     }
 
+    /**
+     * Adds a new row with four entries to a 2d array
+     * @param newRow String array with four entries
+     */
     public void addRow(String[] newRow) {
         if (newRow.length != NUM_COLUMNS) {
             throw new IllegalArgumentException("New row must have " + NUM_COLUMNS + " columns");
         }
-
         int newLength = data.length + 1;
         String[][] newData = new String[newLength][NUM_COLUMNS];
         for (int i = 0; i < data.length; i++) {
