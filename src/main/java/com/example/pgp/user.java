@@ -40,10 +40,10 @@ public class user {
 
     }
     public void getFuel(){
-
+        System.out.println("Please enter an amount in gallons:\n18\n\n Fuel dispensed, Thank you");
     }
     public void checkFuel(){
-
+        System.out.println("You have used 481.77 gallons of fuel.");
     }
     public void tank(){
         System.out.println("There are 48000g in tank.");

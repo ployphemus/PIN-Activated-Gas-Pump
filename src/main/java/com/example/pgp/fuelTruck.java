@@ -39,8 +39,10 @@ public class fuelTruck {
 
     }
     public void addFuel(){
+        System.out.println("Please enter gallons of gas you intend to add:\n1053.33\n");
+        System.out.println("Estimated cost per gallon is $3.50 for a total cost of $3686.66");
         csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv");
-        data[index][3] = "55.33";
+        data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + 55.33);
         file.writeData(data);
     }
 
