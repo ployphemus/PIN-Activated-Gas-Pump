@@ -11,12 +11,12 @@ import java.io.IOException;
  * Is meant to be started when program starts as to allow access to data
  * for verifying PINs and editing fuel amounts.
  */
-public class csvFile {
+public class CsvFile {
     private static final int NUM_COLUMNS = 4; //defines number of columns in array
     private String filePath;                  //filepath for csv file
     private String[][] data;                  //2d array for data pulled from csv
 
-    public csvFile(String filePath) {
+    public CsvFile(String filePath) {
         this.filePath = filePath;
     }
 

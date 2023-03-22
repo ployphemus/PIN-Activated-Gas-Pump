@@ -4,13 +4,13 @@ import java.util.Objects;
 import java.util.Scanner;
 import static com.example.pgp.PgpApplication.data;
 
-public class admin {
+public class Admin {
     protected int pin;
     protected int index;
     protected String name;
     protected int userType = 0;
     protected String fuel = "00.00";
-    public admin(int index) {
+    public Admin(int index) {
         this.index = index;
         menu();
         //TODO create admin stuff: delete user, turn pump on/off
@@ -87,7 +87,7 @@ public class admin {
             else{test = true;}
         }
         String[] newRow = {String.valueOf(pin),name,String.valueOf(userType),"00.00"};
-        csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv");
+        CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
         file.readData();
         file.addRow(newRow);
         file.writeDataInternal();

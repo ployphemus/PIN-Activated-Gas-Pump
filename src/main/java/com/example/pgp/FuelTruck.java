@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 import static com.example.pgp.PgpApplication.data;
 
-public class fuelTruck {
+public class FuelTruck {
     private int index;
 
-    public fuelTruck(int index) {
+    public FuelTruck(int index) {
         this.index = index;
         menu();
         //TODO create truck stuff: add fuel, check lifetime fuel add, get total fuel price from API
@@ -41,7 +41,7 @@ public class fuelTruck {
     public void addFuel(){
         System.out.println("Please enter gallons of gas you intend to add:\n1053.33\n");
         System.out.println("Estimated cost per gallon is $3.50 for a total cost of $3686.66");
-        csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv");
+        CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
         data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + 55.33);
         file.writeData(data);
     }

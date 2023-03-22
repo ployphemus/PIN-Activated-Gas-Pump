@@ -18,7 +18,7 @@ public class PgpApplication {
         int keepOpen = 1;
         String pin;
         int index;
-        csvFile file = new csvFile("src/main/java/com/example/pgp/pinData.csv"); //initialize csvFile and get csv file contents
+        CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv"); //initialize csvFile and get csv file contents
         Scanner input = new Scanner(System.in);
         while(keepOpen == 1) {
 
@@ -33,13 +33,13 @@ public class PgpApplication {
 
             if(index != 0){
                 if(Objects.equals(data[index][2], "1")){
-                    new admin(index);
+                    new Admin(index);
                 }
                 else if(Objects.equals(data[index][2], "2")){
-                    new user(index);
+                    new User(index);
                 }
                 else if(Objects.equals(data[index][2], "3")){
-                    new fuelTruck(index);
+                    new FuelTruck(index);
                 }
                 else{
                     System.out.println("!CSV file may be corrupted,\nplease have an admin check it!");
