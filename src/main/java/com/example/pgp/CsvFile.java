@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Class allows for the reading  and writing of a four column csv file.
+ * Class allows for the reading and writing of a four column csv file.
  * Is meant to be started when program starts as to allow access to data
  * for verifying PINs and editing fuel amounts.
  */

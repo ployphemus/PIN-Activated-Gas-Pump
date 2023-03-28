@@ -97,7 +97,7 @@ public class Admin {
         System.out.println("There are 48000g in tank.");
     }
     public void remUser(){
-        System.out.println("Please enter a name:");
+        System.out.println("Please enter a name:\ntest\n\nUser Removed");
     }
     public void pump(){
         System.out.println("Pump is currently !!ON!!\nSet to OFF?\ny/n");
