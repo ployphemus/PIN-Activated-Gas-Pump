@@ -52,6 +52,7 @@ public class CsvFile {
 
     /**
      * takes a formatted 2d array and writes it to a csv file
+     *
      * @param data 2d array !!Must have four entries per row!!
      */
     public void writeData(String[][] data) {
@@ -96,6 +97,7 @@ public class CsvFile {
 
     /**
      * Adds a new row with four entries to a 2d array
+     *
      * @param newRow String array with four entries
      */
     public void addRow(String[] newRow) {
