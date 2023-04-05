@@ -1,4 +1,11 @@
 package com.example.pgp;
+/*
+  Updated 4/3/23
+
+  Class contains methods for Driver usertype
+  William Vaughan
+  ???
+ */
 
 import java.util.Objects;
 import java.util.Scanner;

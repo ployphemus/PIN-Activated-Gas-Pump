@@ -1,16 +1,17 @@
 //William Vaughan
 package com.example.pgp;
-
+/*
+ * Updated 3/28/23
+ * Class allows for the reading and writing of a four column csv file.
+ * Is meant to be started when program starts as to allow access to data
+ * for verifying PINs and editing fuel amounts.
+ * William Vaughan
+ */
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- * Class allows for the reading and writing of a four column csv file.
- * Is meant to be started when program starts as to allow access to data
- * for verifying PINs and editing fuel amounts.
- */
 public class CsvFile {
     private static final int NUM_COLUMNS = 4; //defines number of columns in array
     private String filePath;                  //filepath for csv file
@@ -89,7 +90,6 @@ public class CsvFile {
             e.printStackTrace();
         }
     }
-
 
     public String[][] getData() {
         return data;

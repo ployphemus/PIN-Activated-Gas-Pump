@@ -1,4 +1,9 @@
 package com.example.pgp;
+/*
+ * Updated 4/3/23
+ * Class contains methods for admin usertype
+ * William Vaughan
+ */
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -50,7 +55,6 @@ public class Admin {
                 System.out.println("That is not a valid entry");
             }
         }
-
     }
 
     /**

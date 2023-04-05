@@ -1,5 +1,11 @@
 package com.example.pgp;
-
+/*
+ * Updated 4/5/23
+ *
+ * Class contains methods for user usertype
+ * William Vaughan
+ * Greyson Williams
+ */
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -12,7 +18,7 @@ public class User {
     public User(int index) {
         this.index = index;
         menu();
-        //TODO create user access stuff: pump gas, check lifetime pump use
+        //TODO create user access stuff: pump gas(low tank warning)
     }
 
     /**
@@ -37,7 +43,6 @@ public class User {
                 x = true;
             } else if (Objects.equals(menuC, "2")) {
                 checkFuel();
-                x = true;
             } else if (Objects.equals(menuC, "3")) {
                 tank();
             } else if (Objects.equals(menuC, "end")) {
@@ -55,17 +60,22 @@ public class User {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter an amount in gallons:");
         amount = input.nextInt();
-
         System.out.println("Fuel dispensed, Thank you");
         CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
         data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + amount);
         data[0][3] = String.valueOf(Double.parseDouble(data[0][3]) - amount);
         file.writeData(data);
-
+        System.out.println("Press enter to continue...");
+        input.nextLine();
+        clearScreen();
     }
 
     public void checkFuel() {
-        System.out.println("You have used 481.77 gallons of fuel.");
+        Scanner input = new Scanner(System.in);
+        System.out.println("You have used "+ data[index][3] + " gallons of fuel.");
+        System.out.println("Press enter to continue...");
+        input.nextLine();
+        clearScreen();
     }
 
     public void tank() {
