@@ -1,9 +1,5 @@
 package com.example.pgp;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -13,24 +9,6 @@ import java.util.Scanner;
 
 
 public class GasApi {
-    public static double getPrice() {
-        try {
-            String url = "https://www.gasbuddy.com/gaspricemap/county?lat=35.9132&lng=-79.0558&usa=true";
-            RestTemplate restTemplate = new RestTemplate();
-            ObjectMapper mapper = new ObjectMapper();
-
-            String jSonPrice = restTemplate.getForObject(url, String.class);
-            JsonNode root = mapper.readTree(jSonPrice);
-
-            //gets coin value in USD
-            double gasPrice = root.findValue("Price").asDouble();
-            return gasPrice;
-
-        } catch (JsonProcessingException ex) {
-            System.out.println("error in getPrice");
-        }
-        return 0;
-    }
     public static double getGasPrice(double lat, double lng) throws IOException {
         String url = "https://www.gasbuddy.com/gaspricemap/county";
         String payload = String.format("{\"lat\": %.4f, \"lng\": %.4f, \"usa\": true}", lat, lng);

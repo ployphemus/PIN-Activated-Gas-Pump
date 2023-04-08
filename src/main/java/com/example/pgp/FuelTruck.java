@@ -12,7 +12,6 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import static com.example.pgp.GasApi.getGasPrice;
-import static com.example.pgp.GasApi.getPrice;
 import static com.example.pgp.PgpApplication.clearScreen;
 import static com.example.pgp.PgpApplication.data;
 
