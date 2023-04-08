@@ -9,6 +9,7 @@ package com.example.pgp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -19,8 +20,8 @@ public class PgpApplication {
     static String[][] data;
     static String verNum = "0.1";
 
-    public static void main(String[] args) {
-        SpringApplication.run(PgpApplication.class, args);
+    public static void main(String[] args) throws IOException {
+        //SpringApplication.run(PgpApplication.class, args);
         int keepOpen = 1;
         String pin;
         int index;

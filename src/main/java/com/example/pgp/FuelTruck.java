@@ -7,16 +7,19 @@ package com.example.pgp;
   ???
  */
 
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static com.example.pgp.GasApi.getGasPrice;
+import static com.example.pgp.GasApi.getPrice;
 import static com.example.pgp.PgpApplication.clearScreen;
 import static com.example.pgp.PgpApplication.data;
 
 public class FuelTruck {
     private int index;
 
-    public FuelTruck(int index) {
+    public FuelTruck(int index) throws IOException {
         this.index = index;
         menu();
         //TODO create truck stuff: add fuel, check lifetime fuel add, get total fuel price from API
@@ -26,7 +29,7 @@ public class FuelTruck {
      * Creates user menu for selecting options, end returns to pin menu
      * add or subtract ifs to increase or decrease menu size
      */
-    public void menu() {
+    public void menu() throws IOException {
         String menuC;
         boolean x = false;
         Scanner input = new Scanner(System.in);
@@ -55,9 +58,9 @@ public class FuelTruck {
 
     }
 
-    public void addFuel() {
+    public void addFuel() throws IOException {
         System.out.println("Please enter gallons of gas you intend to add:\n1053.33\n");
-        System.out.println("Estimated cost per gallon is $3.50 for a total cost of $3686.66");
+        System.out.println(getGasPrice(35.9132, -79.0558));
         CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
         data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + 55.33);
         file.writeData(data);
