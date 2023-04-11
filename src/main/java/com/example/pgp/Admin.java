@@ -21,7 +21,7 @@ public class Admin {
     public Admin(int index) {
         this.index = index;
         menu();
-        //TODO create admin stuff: delete user, turn pump on/off
+        //TODO create admin stuff: delete user
     }
 
     /**
@@ -122,6 +122,30 @@ public class Admin {
     }
 
     public void pump() {
-        System.out.println("Pump is currently !!ON!!\nSet to OFF?\ny/n");
+        Scanner input = new Scanner(System.in);
+        CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
+        String swtch;
+        System.out.print("Pump is currently: ");
+        if(data[1][3] == "1"){
+            System.out.println("!!ON!!\n\nTurn OFF? y/n: ");
+        }
+        else{
+            System.out.println("!!OFF!!\n\nTurn ON? y/n: ");
+        }
+        swtch = input.next();
+        if(Objects.equals(swtch, "y")){
+            if(Objects.equals(data[1][3], "1")){
+                data[1][3] = "0";
+                System.out.println("Pump is now !!OFF!!");
+            }
+            else {
+                data[1][3] = "1";
+                System.out.println("Pump is now !!ON!!");
+            }
+        }
+        file.writeData(data);
+        System.out.println("Press enter to continue...");
+        input.nextLine();
+        clearScreen();
     }
 }

@@ -6,6 +6,7 @@ package com.example.pgp;
  * William Vaughan
  * Greyson Williams
  */
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -28,7 +29,7 @@ public class PgpApplication {
         //initialize csvFile and get csv file contents
         CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
         Scanner input = new Scanner(System.in);
-        while(keepOpen == 1) {
+        while (keepOpen == 1) {
 
             //store csv to class array/reload array from modified csv file
             file.readData();
@@ -42,17 +43,14 @@ public class PgpApplication {
             pin = input.next();
             index = checkPin(pin);
 
-            if(index != 0){
-                if(Objects.equals(data[index][2], "1")){
+            if (index != 0) {
+                if (Objects.equals(data[index][2], "1")) {
                     new Admin(index);
-                }
-                else if(Objects.equals(data[index][2], "2")){
+                } else if (Objects.equals(data[index][2], "2")) {
                     new User(index);
-                }
-                else if(Objects.equals(data[index][2], "3")){
+                } else if (Objects.equals(data[index][2], "3")) {
                     new FuelTruck(index);
-                }
-                else{
+                } else {
                     System.out.println("!CSV file may be corrupted,\nplease have an admin check it!");
                 }
             }
@@ -64,10 +62,10 @@ public class PgpApplication {
         System.out.flush();
     }
 
-    public static int checkPin(String pin){
+    public static int checkPin(String pin) {
         //skips pump and tank entries
-        for(int i = 2;i< data.length;i++){
-            if(Objects.equals(data[i][0], pin)){
+        for (int i = 2; i < data.length; i++) {
+            if (Objects.equals(data[i][0], pin)) {
                 System.out.println("PIN authenticated");
                 return i;
             }

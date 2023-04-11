@@ -1,6 +1,6 @@
 package com.example.pgp;
 /*
-  Updated 4/3/23
+  Updated 4/11/23
 
   Class contains methods for Driver usertype
   William Vaughan
@@ -58,16 +58,36 @@ public class FuelTruck {
     }
 
     public void addFuel() throws IOException {
-        System.out.println("Please enter gallons of gas you intend to add:\n1053.33\n");
-        System.out.println(getGasPrice(35.9132, -79.0558));
-        CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
-        data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + 55.33);
-        file.writeData(data);
+        Scanner input = new Scanner(System.in);
+        Boolean tooBig = true;
+        double gasP = getGasPrice(35.9132, -79.0558);
+        double amountAval = 50000 - Double.parseDouble(data[0][3]);
+        System.out.println("Please enter gallons of gas you intend to add:");
+        int gAmount;
+        while (tooBig) {
+            gAmount = input.nextInt();
+            if (gAmount + Double.parseDouble(data[0][3]) > 50000) {
+                System.out.println("!Added amount will overflow tank!\nPlease enter an amount smaller than "
+                        + amountAval + "g");
+            } else {
+                System.out.println("Estimated total cost of fuel is: $" + gAmount * gasP);
+                CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
+                data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + 55.33);
+                file.writeData(data);
+                tooBig = false;
+            }
+        }
+        System.out.println("Press enter to continue...");
+        input.nextLine();
+        clearScreen();
     }
 
     public void checkAddedFuel() {
-        //hard code for proto-display
-        System.out.println("Driver has delivered 123841 G of fuel");
+        System.out.printf("Driver has delivered %10.2f G of fuel\n", Double.parseDouble(data[index][3]));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Press enter to continue...");
+        scanner.nextLine();
+        clearScreen();
     }
 
     public void tank() {

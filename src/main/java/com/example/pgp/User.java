@@ -18,7 +18,6 @@ public class User {
     public User(int index) {
         this.index = index;
         menu();
-        //TODO create user access stuff: pump gas(low tank warning)
     }
 
     /**
@@ -55,16 +54,26 @@ public class User {
     }
 
     public void getFuel() {
-        //TODO make tank warning
-        int amount;
         Scanner input = new Scanner(System.in);
-        System.out.println("Please enter an amount in gallons:");
-        amount = input.nextInt();
-        System.out.println("Fuel dispensed, Thank you");
         CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
-        data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + amount);
-        data[0][3] = String.valueOf(Double.parseDouble(data[0][3]) - amount);
-        file.writeData(data);
+        if(Objects.equals(data[1][3], "0")){
+            System.out.println("Pump is disabled,\nplease contact an administrator.");
+        }
+        else if(Double.parseDouble(data[0][3]) < 100){
+            System.out.println("Level in tank is too low,\npump has been disabled.\nPlease contact an administrator.");
+            data[1][3] = "0";
+            file.writeData(data);
+        }
+        else {
+            int amount;
+            System.out.println("Please enter an amount in gallons:");
+            amount = input.nextInt();
+            System.out.println("Fuel dispensed, Thank you");
+
+            data[index][3] = String.valueOf(Double.parseDouble(data[index][3]) + amount);
+            data[0][3] = String.valueOf(Double.parseDouble(data[0][3]) - amount);
+            file.writeData(data);
+        }
         System.out.println("Press enter to continue...");
         input.nextLine();
         clearScreen();

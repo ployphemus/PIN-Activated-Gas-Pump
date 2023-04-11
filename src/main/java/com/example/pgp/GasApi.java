@@ -9,6 +9,16 @@ import java.util.Scanner;
 
 
 public class GasApi {
+
+    /**
+     * Method sends a POST request to the API address, with the latitude and longitude values included in the
+     * JSON payload. The method then extracts the "Price" field from the JSON response as a double, and returns it.
+     *
+     * @param lat Latitude of gas price
+     * @param lng Longitude of gas price
+     * @return gas price as a double
+     * @throws IOException
+     */
     public static double getGasPrice(double lat, double lng) throws IOException {
         String url = "https://www.gasbuddy.com/gaspricemap/county";
         String payload = String.format("{\"lat\": %.4f, \"lng\": %.4f, \"usa\": true}", lat, lng);
