@@ -37,7 +37,7 @@ public class Admin {
                     "or type 'end' and press\n" +
                     "enter to log out");
 
-            System.out.println("1.) Add User\n2.) Remove User\n3.) Check Tank Level\n4.) Change Pump Status");
+            System.out.println("1.) Add User\n2.) Remove User\n3.) Check Tank Level\n4.) Change Pump Status\n5.) Exit Program");
 
             menuC = input.next();
 
@@ -49,6 +49,8 @@ public class Admin {
                 tank();
             } else if (Objects.equals(menuC, "4")) {
                 pump();
+            } else if (Objects.equals(menuC, "5")) {
+                System.exit(0);
             } else if (Objects.equals(menuC, "end")) {
                 x = true;
             } else {
