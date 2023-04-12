@@ -120,7 +120,11 @@ public class Admin {
     }
 
     public void remUser() {
-        System.out.println("Please enter a name:\ntest\n\nUser Removed");
+        //TODO finish
+        Scanner input = new Scanner(System.in);
+        String pinRem;
+        System.out.println("Please enter a PIN to remove: ");
+
     }
 
     public void pump() {

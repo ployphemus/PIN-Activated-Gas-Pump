@@ -21,7 +21,6 @@ public class FuelTruck {
     public FuelTruck(int index) throws IOException {
         this.index = index;
         menu();
-        //TODO create truck stuff: add fuel, check lifetime fuel add, get total fuel price from API
     }
 
     /**

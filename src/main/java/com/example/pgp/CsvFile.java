@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class CsvFile {
     private static final int NUM_COLUMNS = 4; //defines number of columns in array
@@ -111,5 +112,23 @@ public class CsvFile {
         }
         newData[newLength - 1] = newRow;
         data = newData;
+    }
+    public void removeRow(String valueToRemove) {
+        for (int i = 0; i < data.length; i++) {
+            if (data[i][0].equals(valueToRemove)) {
+                // Shift the rows above the matched row to fill the gap
+                for (int j = i; j < data.length - 1; j++) {
+                    data[j] = data[j + 1];
+                }
+
+                // Resize the data array to exclude the removed row
+                data = Arrays.copyOf(data, data.length - 1);
+
+                System.out.println("Line with " + valueToRemove + " removed.");
+                return;
+            }
+        }
+
+        System.out.println("No line found with " + valueToRemove);
     }
 }
