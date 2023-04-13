@@ -1,11 +1,12 @@
 package com.example.pgp;
 /*
- * Updated 4/5/23
+ * Updated 4/13/23
  *
  * Class contains methods for user usertype
  * William Vaughan
  * Greyson Williams
  */
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -53,18 +54,22 @@ public class User {
 
     }
 
+    /**
+     * Method takes an entered amount of fuel in gallons and "dispenses" it.
+     * Value it then added to total user amount and saved to CSV file.
+     * If fuel level in tank is too low, pump is disabled and user is warned.
+     * If pump is disabled, user is warned.
+     */
     public void getFuel() {
         Scanner input = new Scanner(System.in);
         CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
-        if(Objects.equals(data[1][3], "0")){
+        if (Objects.equals(data[1][3], "0")) {
             System.out.println("Pump is disabled,\nplease contact an administrator.");
-        }
-        else if(Double.parseDouble(data[0][3]) < 100){
+        } else if (Double.parseDouble(data[0][3]) < 100) {
             System.out.println("Level in tank is too low,\npump has been disabled.\nPlease contact an administrator.");
             data[1][3] = "0";
             file.writeData(data);
-        }
-        else {
+        } else {
             int amount;
             System.out.println("Please enter an amount in gallons:");
             amount = input.nextInt();
@@ -79,14 +84,20 @@ public class User {
         clearScreen();
     }
 
+    /**
+     * Prints total amount of fuel used by user over lifetime
+     */
     public void checkFuel() {
         Scanner input = new Scanner(System.in);
-        System.out.println("You have used "+ data[index][3] + " gallons of fuel.");
+        System.out.println("You have used " + data[index][3] + " gallons of fuel.");
         System.out.println("Press enter to continue...");
         input.nextLine();
         clearScreen();
     }
 
+    /**
+     * Prints current gas level in tank
+     */
     public void tank() {
         System.out.println("There are " + data[0][3] + "g in tank.");
         Scanner scanner = new Scanner(System.in);

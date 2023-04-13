@@ -1,6 +1,6 @@
 package com.example.pgp;
 /*
-  Updated 4/11/23
+  Updated 4/13/23
 
   Class contains methods for Driver usertype
   William Vaughan
@@ -18,6 +18,7 @@ import static com.example.pgp.PgpApplication.data;
 public class FuelTruck {
     private int index;
 
+    //Constructor
     public FuelTruck(int index) throws IOException {
         this.index = index;
         menu();
@@ -53,9 +54,16 @@ public class FuelTruck {
                 System.out.println("That is not a valid entry");
             }
         }
-
     }
 
+    /**
+     * Adds fuel to tank based on entered value.
+     * If entered amount + level in tank is greater than total tank volume then
+     * user is warned and difference that can be added is printed.
+     * If successful then prints the estimated cost of fuel using remote API.
+     *
+     * @throws IOException
+     */
     public void addFuel() throws IOException {
         Scanner input = new Scanner(System.in);
         Boolean tooBig = true;
@@ -81,6 +89,9 @@ public class FuelTruck {
         clearScreen();
     }
 
+    /**
+     * Prints total amount of fuel delivered over lifetime.
+     */
     public void checkAddedFuel() {
         System.out.printf("Driver has delivered %10.2f G of fuel\n", Double.parseDouble(data[index][3]));
         Scanner scanner = new Scanner(System.in);
@@ -89,6 +100,9 @@ public class FuelTruck {
         clearScreen();
     }
 
+    /**
+     * Prints current gas level in tank
+     */
     public void tank() {
         System.out.println("There are " + data[0][3] + "g in tank.");
         Scanner scanner = new Scanner(System.in);

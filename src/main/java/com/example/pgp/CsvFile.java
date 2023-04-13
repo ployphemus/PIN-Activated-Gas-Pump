@@ -1,12 +1,13 @@
 //William Vaughan
 package com.example.pgp;
 /*
- * Updated 3/28/23
+ * Updated 4/13/23
  * Class allows for the reading and writing of a four column csv file.
  * Is meant to be started when program starts as to allow access to data
  * for verifying PINs and editing fuel amounts.
  * William Vaughan
  */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,16 +15,19 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class CsvFile {
-    private static final int NUM_COLUMNS = 4; //defines number of columns in array
-    private String filePath;                  //filepath for csv file
-    private String[][] data;                  //2d array for data pulled from csv
+    //defines number of columns in array
+    private static final int NUM_COLUMNS = 4;
+    //filepath for csv file
+    private String filePath;
+    //2d array for data pulled from csv
+    private String[][] data;
 
     public CsvFile(String filePath) {
         this.filePath = filePath;
     }
 
     /**
-     * Method reads raw data from csv file and puts it into data array
+     * Method reads raw data from csv file and puts it into internal class data array
      */
     public void readData() {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -113,6 +117,13 @@ public class CsvFile {
         newData[newLength - 1] = newRow;
         data = newData;
     }
+
+    /**
+     * Receives a String value, checks against column 0 of array,
+     * and removes row if value matches.
+     *
+     * @param valueToRemove String Value to check against array
+     */
     public void removeRow(String valueToRemove) {
         for (int i = 0; i < data.length; i++) {
             if (data[i][0].equals(valueToRemove)) {
@@ -120,7 +131,6 @@ public class CsvFile {
                 for (int j = i; j < data.length - 1; j++) {
                     data[j] = data[j + 1];
                 }
-
                 // Resize the data array to exclude the removed row
                 data = Arrays.copyOf(data, data.length - 1);
 

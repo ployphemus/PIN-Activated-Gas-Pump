@@ -1,5 +1,10 @@
 package com.example.pgp;
-
+/*
+ * Updated 4/13/23
+ *
+ * Class accesses remote API.
+ * William Vaughan
+ */
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;

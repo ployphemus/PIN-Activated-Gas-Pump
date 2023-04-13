@@ -1,6 +1,6 @@
 package com.example.pgp;
 /*
- * Updated 4/3/23
+ * Updated 4/13/23
  * Class contains methods for admin usertype
  * William Vaughan
  */
@@ -18,10 +18,11 @@ public class Admin {
     protected int userType = 0;
     protected String fuel = "00.00";
 
+    //Constructor
     public Admin(int index) {
         this.index = index;
         menu();
-        //TODO create admin stuff: delete user
+
     }
 
     /**
@@ -111,6 +112,9 @@ public class Admin {
         file.writeDataInternal();
     }
 
+    /**
+     * Prints current gas level in tank
+     */
     public void tank() {
         System.out.println("There are " + data[0][3] + "g in tank.");
         Scanner scanner = new Scanner(System.in);
@@ -119,6 +123,9 @@ public class Admin {
         clearScreen();
     }
 
+    /**
+     * Removes user based on entered PIN
+     */
     public void remUser() {
         Scanner input = new Scanner(System.in);
         String pinRem;
@@ -132,24 +139,25 @@ public class Admin {
         input.nextLine();
     }
 
+    /**
+     * Prints current pump status and gives option to change it.
+     */
     public void pump() {
         Scanner input = new Scanner(System.in);
         CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
         String swtch;
         System.out.print("Pump is currently: ");
-        if(data[1][3] == "1"){
+        if (data[1][3] == "1") {
             System.out.println("!!ON!!\n\nTurn OFF? y/n: ");
-        }
-        else{
+        } else {
             System.out.println("!!OFF!!\n\nTurn ON? y/n: ");
         }
         swtch = input.next();
-        if(Objects.equals(swtch, "y")){
-            if(Objects.equals(data[1][3], "1")){
+        if (Objects.equals(swtch, "y")) {
+            if (Objects.equals(data[1][3], "1")) {
                 data[1][3] = "0";
                 System.out.println("Pump is now !!OFF!!");
-            }
-            else {
+            } else {
                 data[1][3] = "1";
                 System.out.println("Pump is now !!ON!!");
             }

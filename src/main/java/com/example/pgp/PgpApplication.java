@@ -1,8 +1,8 @@
 package com.example.pgp;
 /*
- * Updated 4/3/23
+ * Updated 4/13/23
  *
- * Class contains main methods and springboot initalizer.
+ * Class contains main methods and springboot initializer.
  * William Vaughan
  * Greyson Williams
  */
@@ -21,7 +21,13 @@ public class PgpApplication {
     static String[][] data;
     static String verNum = "0.1";
 
+    /**
+     * Initializes main menu
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
+        //Springboot not currently needed as API is accessed through pure java and JSON
         //SpringApplication.run(PgpApplication.class, args);
         int keepOpen = 1;
         String pin;
@@ -57,11 +63,21 @@ public class PgpApplication {
         }
     }
 
+    /**
+     * Clears term screen.
+     * (Does not function in IntelliJ run console)
+     */
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
+    /**
+     * Checks PIN against column 0 of array
+     *
+     * @param pin PIN to check against array
+     * @return int line index of authenticated PIN
+     */
     public static int checkPin(String pin) {
         //skips pump and tank entries
         for (int i = 2; i < data.length; i++) {
