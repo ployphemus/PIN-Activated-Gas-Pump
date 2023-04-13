@@ -120,11 +120,16 @@ public class Admin {
     }
 
     public void remUser() {
-        //TODO finish
         Scanner input = new Scanner(System.in);
         String pinRem;
         System.out.println("Please enter a PIN to remove: ");
-
+        pinRem = input.next();
+        CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
+        file.readData();
+        file.removeRow(pinRem);
+        file.writeDataInternal();
+        System.out.println("Press enter to continue...");
+        input.nextLine();
     }
 
     public void pump() {
