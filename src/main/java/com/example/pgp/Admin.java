@@ -145,6 +145,7 @@ public class Admin {
     public void pump() {
         Scanner input = new Scanner(System.in);
         CsvFile file = new CsvFile("src/main/java/com/example/pgp/pinData.csv");
+        //yes, I know switch is spelled wrong, but switch is java keyword so...
         String swtch;
         System.out.print("Pump is currently: ");
         if (data[1][3] == "1") {

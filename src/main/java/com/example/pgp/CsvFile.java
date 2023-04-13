@@ -1,4 +1,3 @@
-//William Vaughan
 package com.example.pgp;
 /*
  * Updated 4/13/23
